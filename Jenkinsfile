@@ -1,5 +1,9 @@
 pipeline {
     agent any
+    tools {
+      maven 'Maven'
+      jdk '21'
+    }
 
     stages {
         stage('Test with Keep Last Sources') {

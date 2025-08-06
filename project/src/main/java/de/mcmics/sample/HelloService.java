@@ -1,4 +1,4 @@
-package de.mcmics;
+package de.mcmics.sample;
 
 public class HelloService {
     public String hello(NameProvider nameProvider) {

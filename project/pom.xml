@@ -38,7 +38,6 @@
                         </path>
                     </annotationProcessorPaths>
                     <showWarnings>true</showWarnings>
-                    <proc>only</proc>
                 </configuration>
             </plugin>
 
