@@ -22,7 +22,7 @@ import static javax.tools.Diagnostic.Kind.NOTE;
 import static javax.tools.Diagnostic.Kind.WARNING;
 
 @SupportedAnnotationTypes({
-        "de.mcmics.NameCreator"
+        "de.mcmics.annotation.NameCreator"
 })
 @SupportedSourceVersion(SourceVersion.RELEASE_17)
 public class SourceAnnotationProcessor extends AbstractProcessor {
@@ -58,12 +58,18 @@ public class SourceAnnotationProcessor extends AbstractProcessor {
         try {
             for (int i = 0; i < classesToCreate; i++) {
                 final String classNameToCreate = className + i;
-                var builderFile = processingEnv.getFiler().createSourceFile(packageName + "." + classNameToCreate);
+                var builderFile = processingEnv.getFiler().createSourceFile(packageName + ".gen." + classNameToCreate);
                 try (var out = new PrintWriter(builderFile.openWriter())) {
                     if (packageName != null) {
                         out.print("package ");
                         out.print(packageName);
-                        out.println(";");
+                        out.println(".gen;");
+                        out.println();
+                        out.print("import ");
+                        out.print(packageName);
+                        out.print(".");
+                        out.print(className);
+                        out.print(";");
                         out.println();
                     }
                     out.print("public class ");
@@ -72,9 +78,9 @@ public class SourceAnnotationProcessor extends AbstractProcessor {
                     out.println(element.getSimpleName());
                     out.println(" {");
                     out.println("public String getName() {");
-                    out.println("return ");
-                    out.println("\"Name \"" + i);
-                    out.println(";");
+                    out.print("return ");
+                    out.print("\"Name " + i + "\"");
+                    out.print(";");
                     out.println("}");
                     out.println("}");
                 }

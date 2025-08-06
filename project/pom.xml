@@ -34,9 +34,11 @@
                         <path>
                             <groupId>de.mcmics</groupId>
                             <artifactId>processor</artifactId>
+                            <version>1.0-SNAPSHOT</version>
                         </path>
                     </annotationProcessorPaths>
                     <showWarnings>true</showWarnings>
+                    <proc>only</proc>
                 </configuration>
             </plugin>
 
