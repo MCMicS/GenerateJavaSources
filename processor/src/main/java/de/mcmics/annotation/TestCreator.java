@@ -1,4 +1,4 @@
-package de.mcmics;
+package de.mcmics.annotation;
 
 public @interface TestCreator {
 }

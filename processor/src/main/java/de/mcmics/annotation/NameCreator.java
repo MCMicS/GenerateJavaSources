@@ -1,5 +1,5 @@
 package de.mcmics.annotation;
 
-public @interface SourceCreator {
+public @interface NameCreator {
     int number() default 10;
 }

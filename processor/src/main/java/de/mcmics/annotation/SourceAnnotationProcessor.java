@@ -31,7 +31,7 @@ public class SourceAnnotationProcessor extends AbstractProcessor {
     public synchronized void init(ProcessingEnvironment processingEnvironment) {
         super.init(processingEnvironment);
 
-        processingEnv.getMessager().printMessage(NOTE, "Generate CustomBuilders");
+        processingEnv.getMessager().printMessage(NOTE, "Generate Sources");
     }
 
     @Override
@@ -77,7 +77,6 @@ public class SourceAnnotationProcessor extends AbstractProcessor {
                     out.println(";");
                     out.println("}");
                     out.println("}");
-
                 }
             }
         } catch (Exception e) {
